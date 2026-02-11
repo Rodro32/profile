@@ -13,3 +13,7 @@ export const projectValidationSchema = z.object({
     isDeleted: z.boolean().optional(),
   })
 })
+
+export const projectValidation = {
+  projectValidationSchema,
+}
