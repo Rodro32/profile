@@ -26,33 +26,20 @@ const getAllMessages = catchAsync(async (_req: Request, res: Response) => {
   });
 });
 
-const markMessageRead = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const result = await MessageService.markMessageAsRead(id);
 
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: "Message marked as read",
-    data: result,
-  });
-});
+// const deleteMessage = catchAsync(async (req: Request, res: Response) => {
+//   const { id } = req.params;
+//   const result = await MessageService.deleteMessageFromDB(id);
 
-const deleteMessage = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const result = await MessageService.deleteMessageFromDB(id);
-
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: "Message deleted successfully",
-    data: result,
-  });
-});
+//   sendResponse(res, {
+//     statusCode: httpStatus.OK,
+//     success: true,
+//     message: "Message deleted successfully",
+//     data: result,
+//   });
+// });
 
 export const MessageController = {
   createMessage,
   getAllMessages,
-  markMessageRead,
-  deleteMessage,
 };

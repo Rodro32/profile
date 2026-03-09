@@ -6,15 +6,15 @@ import { MessageValidation } from "./message.validation";
 const router = express.Router();
 
 router.post(
-  "/",
+  "/create-message",
   validateRequest(MessageValidation.createMessageValidationSchema),
   MessageController.createMessage
 );
 
 router.get("/", MessageController.getAllMessages);
 
-router.patch("/:id", MessageController.markMessageRead);
+// router.patch("/:id", MessageController.markMessageRead);
 
-router.delete("/:id", MessageController.deleteMessage);
+// router.delete("/:id", MessageController.deleteMessage);
 
 export const MessageRoutes = router;

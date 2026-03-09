@@ -11,23 +11,13 @@ const getAllMessagesFromDB = async () => {
   return result;
 };
 
-const markMessageAsRead = async (id: string) => {
-  const result = await Message.findByIdAndUpdate(
-    id,
-    { isRead: true },
-    { new: true }
-  );
-  return result;
-};
 
-const deleteMessageFromDB = async (id: string) => {
-  const result = await Message.findByIdAndDelete(id);
-  return result;
-};
+// const deleteMessageFromDB = async (id: string) => {
+//   const result = await Message.findByIdAndDelete(id);
+//   return result;
+// };
 
 export const MessageService = {
   createMessageIntoDB,
   getAllMessagesFromDB,
-  markMessageAsRead,
-  deleteMessageFromDB,
 };
