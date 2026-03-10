@@ -7,6 +7,11 @@ const createSkillIntoDB = async (payload: TSkill) => {
   return result;
 };
 
+// const getSingleMessageFromDB = async (id: string) => {
+//   const result = await Message.findById(id);
+//   return result;
+// };
+
 export const skillServices = {
   createSkillIntoDB,
 }

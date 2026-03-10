@@ -12,7 +12,13 @@ const getAllProjectFromDB = async () => {
   return result;
 };
 
+const getSingleProjectFromDB = async (id: string) => {
+  const result = await Project.findById(id);
+  return result;
+};
+
 export const projectServices = {
   createProjectIntoDB,
   getAllProjectFromDB,
+  getSingleProjectFromDB,
 }

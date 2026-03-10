@@ -10,4 +10,6 @@ router.post(
 
 router.get("/", projectController.getAllProject);
 
+router.get("/:id", projectController.getSingleProject);
+
 export const ProjectRoutes = router;
