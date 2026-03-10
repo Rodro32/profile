@@ -27,19 +27,21 @@ const getAllMessages = catchAsync(async (_req: Request, res: Response) => {
 });
 
 
-// const deleteMessage = catchAsync(async (req: Request, res: Response) => {
-//   const { id } = req.params;
-//   const result = await MessageService.deleteMessageFromDB(id);
+const deleteMessage = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id as string;
 
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: "Message deleted successfully",
-//     data: result,
-//   });
-// });
+  const result = await MessageService.deleteMessageFromDB(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Message deleted successfully",
+    data: result,
+  });
+});
 
 export const MessageController = {
   createMessage,
   getAllMessages,
+  deleteMessage ,
 };

@@ -11,13 +11,20 @@ const getAllMessagesFromDB = async () => {
   return result;
 };
 
+const getSingleMessageFromDB = async (id: string) => {
+  const result = await Message.findById(id);
+  return result;
+};
 
-// const deleteMessageFromDB = async (id: string) => {
-//   const result = await Message.findByIdAndDelete(id);
-//   return result;
-// };
+const deleteMessageFromDB = async (id: string) => {
+  const result = await Message.findByIdAndDelete(id);
+  return result;
+};
+
 
 export const MessageService = {
   createMessageIntoDB,
   getAllMessagesFromDB,
+  deleteMessageFromDB,
+  getSingleMessageFromDB,
 };

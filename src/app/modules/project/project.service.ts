@@ -7,6 +7,12 @@ const createProjectIntoDB = async (payload: TProject) => {
   return result;
 };
 
+const getAllProjectFromDB = async () => {
+  const result = await Project.find();
+  return result;
+};
+
 export const projectServices = {
   createProjectIntoDB,
+  getAllProjectFromDB,
 }

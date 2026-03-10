@@ -15,6 +15,6 @@ router.get("/", MessageController.getAllMessages);
 
 // router.patch("/:id", MessageController.markMessageRead);
 
-// router.delete("/:id", MessageController.deleteMessage);
+router.delete("/:id", MessageController.deleteMessage);
 
 export const MessageRoutes = router;

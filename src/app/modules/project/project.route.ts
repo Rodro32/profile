@@ -8,4 +8,6 @@ router.post(
   projectController.createProject
 );
 
+router.get("/", projectController.getAllProject);
+
 export const ProjectRoutes = router;
