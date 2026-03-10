@@ -13,7 +13,7 @@ router.post(
 
 router.get("/", MessageController.getAllMessages);
 
-// router.patch("/:id", MessageController.markMessageRead);
+router.get("/:id", MessageController.getSingleMessage);
 
 router.delete("/:id", MessageController.deleteMessage);
 

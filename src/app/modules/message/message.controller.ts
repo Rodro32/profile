@@ -27,6 +27,20 @@ const getAllMessages = catchAsync(async (_req: Request, res: Response) => {
 });
 
 
+const getSingleMessage = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id as string;
+
+  const result = await MessageService.getSingleMessageFromDB(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Message retrieved successfully",
+    data: result,
+  });
+});
+
+
 const deleteMessage = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id as string;
 
@@ -44,4 +58,5 @@ export const MessageController = {
   createMessage,
   getAllMessages,
   deleteMessage ,
+  getSingleMessage,
 };
