@@ -13,7 +13,7 @@ const createAdminIntoDb = async (password: string, payload: TAdmin) => {
   userData.role = "admin";
   userData.password = password;
   userData.email = payload.email;
-  userData.id = "281";
+  userData.id = "286";
   const newUser = await User.create(userData);
   if (!newUser) {
     throw new Error("user created failed");
