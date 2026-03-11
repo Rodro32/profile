@@ -8,6 +8,8 @@ router.post(
   SkillController.createProject
 );
 
-// router.get("/:id", MessageController.getSingleMessage);
+router.get("/", SkillController.getAllSkill);
+
+router.get("/:id", SkillController.getSingleSkill);
 
 export const SkillRoutes = router;
