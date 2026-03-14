@@ -18,17 +18,15 @@ export const findLastAdminId = async () => {
   return lastAdmin?.id ? lastAdmin.id.substring(2) : undefined;
 };
 export const generateAdminId = async () => {
-  const lastAdmin = await User.findOne({ role: "admin" })
-    .sort({ id: -1 }) // sort by id, not createdAt
-    .lean();
+  let currentId = (0).toString();
+  const lastAdminId = await findLastAdminId();
 
-  let newId = "A-0001";
-
-  if (lastAdmin?.id) {
-    const lastNumber = Number(lastAdmin.id.split("-")[1]);
-    const nextNumber = (lastNumber + 1).toString().padStart(4, "0");
-    newId = `A-${nextNumber}`;
+  if (lastAdminId) {
+    currentId = lastAdminId.substring(2);
   }
 
-  return newId;
+  let incrementId = (Number(currentId) + 1).toString().padStart(4, '0');
+
+  incrementId = `A-${incrementId}`;
+  return incrementId;
 };

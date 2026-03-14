@@ -1,10 +1,23 @@
+import { sendMessage } from "../../utils/sendMessage";
 import { TMessage } from "./message.interface";
 import { Message } from "./message.model";
 
 const createMessageIntoDB = async (payload: TMessage) => {
   const result = await Message.create(payload);
+
+  const html = `
+    <h2>New Portfolio Message</h2>
+    <p><strong>Name:</strong> ${payload.name}</p>
+    <p><strong>Email:</strong> ${payload.email}</p>
+    <p><strong>Message:</strong> ${payload.message}</p>
+  `;
+
+  // send email notification to yourself
+  await sendMessage(process.env.EMAIL_USER as string, html);
+
   return result;
 };
+
 
 const getAllMessagesFromDB = async () => {
   const result = await Message.find();
