@@ -10,6 +10,11 @@ const AdminSchema = new Schema<TAdmin>({
       type: String,
     },
   },
+  id:{
+    type:String,
+    required: true,
+    unique:true,
+  },
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User",

@@ -4,6 +4,7 @@ import { UserRoute } from "../modules/users/users.route";
 import { SkillRoutes } from "../modules/skills/skills.route";
 import { MessageRoutes } from "../modules/message/message.route";
 import { AdminRoutes } from "../modules/admin/admin.route";
+import { AuthRoutes } from "../modules/auth/auth.route";
 
 const router = Router();
 
@@ -27,6 +28,10 @@ const moduleRoutes = [
   {
     path:'/admin',
     route:AdminRoutes,
+  },
+  {
+    path:'/auth',
+    route:AuthRoutes,
   },
 ]
 

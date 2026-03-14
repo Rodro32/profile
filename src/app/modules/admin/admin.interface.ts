@@ -9,9 +9,10 @@ export type TUserName = {
 
 export type TAdmin = {
   name: TUserName;
+  id:string,
+  userId: Types.ObjectId;
   email: string;
   gender: TGender;
-  userId: Types.ObjectId;
   dateOfBirth?: Date;
   address: string;
 };
